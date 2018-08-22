@@ -5,7 +5,10 @@ import asyncio
 import json
 import requests
 
-TOKEN = 'ACCESS TOKEN HERE'
+consumer_key = input('StackApps consumer key: ')
+stackapps_token = input('StackApps access token: ')
+discordbot_token = input('Discord Bot Token: ')
+
 client = commands.Bot(command_prefix = '!')
 
 @client.event
@@ -18,6 +21,7 @@ async def on_ready():
 @client.event
 async def on_message(message):
     channel = message.channel
+
     if message.content.startswith('!search'):
         query = message.content[8:]
         await client.send_message(channel, '**StackOverflow Query:** \'' + query + "\'\n")
@@ -25,7 +29,7 @@ async def on_message(message):
         link = "https://api.stackexchange.com/2.2/search/advanced?order=desc&" + \
                 "sort=relevance&q=" + query + "&site=stackoverflow"
 
-        r = requests.get(link)
+        r = requests.get(link, params={'key': consumer_key, 'access_token': stackapps_token})
         data = json.loads(r.text)
 
         bot_response = ""
@@ -41,5 +45,9 @@ async def on_message(message):
             await client.send_message(channel, bot_response)
 
         print("Queries remaining: " + str(data['quota_remaining']))
+    
+    elif message.content.startswith('!help'):
+        help_message = "Usage: '!search [search string]'"
+        await client.send_message(channel, help_message)
 
-client.run(TOKEN)
+client.run(discordbot_token)
