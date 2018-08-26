@@ -2,7 +2,7 @@
 
 Quick and dirty Discord bot that searches for StackOverflow posts given a search string.
 
-![screenshot](https://github.com/ryanshim/SODiscordBot/screenshot.png)
+![alt text](https://github.com/ryanshim/SODiscordBot/screenshot.png "screenshot")
 
 #### Dependencies
 * discord.py [Python wrapper for the Discord API]
