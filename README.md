@@ -2,6 +2,8 @@
 
 Quick and dirty Discord bot that searches for StackOverflow posts given a search string.
 
+![screenshot](https://github.com/ryanshim/SODiscordBot/screenshot.png)
+
 #### Dependencies
 * discord.py [Python wrapper for the Discord API]
 	* `python3 -m pip install -U discord.py`
@@ -29,5 +31,6 @@ Quick and dirty Discord bot that searches for StackOverflow posts given a search
 	* `python3 so_bot.py`
 
 #### Usage
-* Searches start with the command prefix '!search [query string]'
+* Searches start with the command prefix `!search [flags] [query string]`
 * Example: !search python how to concatenate strings
+* Example: !search -o asc -s relevance python how to concatenate strings
