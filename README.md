@@ -21,7 +21,7 @@ Quick and dirty Discord bot that searches for StackOverflow posts given a search
 * Obtain your access token using the following steps:
 	1. Use the following URL with your `client_id` and the chosen `redirect_uri` in your browser:
 		* `https://stackoverflow.com/oauth?client_id=CLIENT_ID&scopeno_expiry&redirect_uri=REDIRECT_URI`
-		* Note: If you used the default redirect_uri provided by stackexchange, it will most likely be: `https://stackexchange.com/oauth/login_success`
+		* Note: If you used the default redirect_uri provided by StackExchange, it will most likely be: `https://stackexchange.com/oauth/login_success`
 	2. Accept the application permissions.
 	3. Copy and save the code given in the URL and run the authentication script.
 	4. Copy and save the access token from the response.
@@ -31,6 +31,11 @@ Quick and dirty Discord bot that searches for StackOverflow posts given a search
 	* `python3 so_bot.py`
 
 #### Usage
-* Searches start with the command prefix `!search [flags] [query string]`
-* Example: !search python how to concatenate strings
-* Example: !search -o asc -s relevance python how to concatenate strings
+* Searches start with the `!search` prefix followed by the search string.
+* You can add sort-by or order-by flags as well: 
+    * Sort-by options: activity, votes, creation, relevance
+    * Order-by options: asc, desc 
+* Examples:
+    * `!search python how to concatenate strings`
+    * `!search -o asc -s relevance python how to concatenate strings`
+    * `!help`
